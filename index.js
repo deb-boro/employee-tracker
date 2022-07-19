@@ -70,6 +70,9 @@ const empDetails = () => {
               const sqlInsert = 'INSERT INTO department (name) VALUES (?)'
               db.query(sqlInsert, [answer.department], (error, result) => {
                 if (error) throw error
+                console.log(
+                  `.......Adding ${answer.department} to the department.......`,
+                )
                 empDetails()
               })
             })
@@ -105,6 +108,8 @@ const empDetails = () => {
 
           break
         case 'Quit':
+          console.log('.......... Bye for now............')
+          db.end()
           break
       }
     })
